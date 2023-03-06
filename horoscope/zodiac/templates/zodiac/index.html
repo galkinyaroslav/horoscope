@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+
+</head>
+<body>
+<h1>{{current_date|date:"d-M-Y"}</h1>
+<ul>
+    {% for pic in pics %}
+    <li>{%autoescape off%}{{pic}}{%endautoescape %}</li>
+    {% endfor %}
+</ul>
+</body>
+</html>

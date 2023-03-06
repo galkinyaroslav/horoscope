@@ -8,6 +8,7 @@ class ZodiacSigns(models.Model):
     sign_name = models.CharField(max_length=11)
     from_date = models.CharField(max_length=30)
     to_date = models.CharField(max_length=30)
+    sign_image = models.ImageField(upload_to='images', null=True)
     slug = models.SlugField(default='', null=False)
 
     def __str__(self):
@@ -18,7 +19,8 @@ class SignHoroscope(models.Model):
     sign_horoscope = models.TextField()
     sign = models.ForeignKey(ZodiacSigns, on_delete=models.CASCADE)
     date = models.DateField()
-    slug = models.SlugField(default='',null=False)
+    slug = models.SlugField(default='', null=False)
 
     def __str__(self):
         return f'Horoscope for {self.sign} on {self.date}'
+#
