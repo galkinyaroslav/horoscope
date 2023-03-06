@@ -1,29 +1,31 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseNotFound
 from django.template import loader
-from zodiac.models import ZodiacSigns, SignHoroscope
+from zodiac.models import ZodiacSign, SignHoroscope
 from datetime import date
 
 # Create your views here.
 current_date = date.today()
-zodiac_sign_pic_list = ['&#9800',
-                        '&#9801',
-                        '&#9802',
-                        '&#9803',
-                        '&#9804',
-                        '&#9805',
-                        '&#9806',
-                        '&#9807',
-                        '&#9808',
-                        '&#9809',
-                        '&#9810',
-                        '&#9811', ]
+# zodiac_sign_pic_list = ['&#9800',
+#                         '&#9801',
+#                         '&#9802',
+#                         '&#9803',
+#                         '&#9804',
+#                         '&#9805',
+#                         '&#9806',
+#                         '&#9807',
+#                         '&#9808',
+#                         '&#9809',
+#                         '&#9810',
+#                         '&#9811', ]
 
 
 def index(request):
+    zodiac_signs = ZodiacSign.objects.all()
     return render(request, 'zodiac/index.html', {'title': 'Главная страница',
                                                  'current_date': current_date,
-                                                 'pics': zodiac_sign_pic_list, })
+                                                 # 'pics': zodiac_sign_pic_list,
+                                                 'zodiac_signes': zodiac_signs},)
 
 
 def zodiac_sign(request, sign):

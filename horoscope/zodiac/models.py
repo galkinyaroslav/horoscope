@@ -4,10 +4,11 @@ from django.db import models
 
 # Create your models here.
 
-class ZodiacSigns(models.Model):
+class ZodiacSign(models.Model):
     sign_name = models.CharField(max_length=11)
     from_date = models.CharField(max_length=30)
     to_date = models.CharField(max_length=30)
+    sign_view = models.CharField(max_length=6, null=True)
     sign_image = models.ImageField(upload_to='images', null=True)
     slug = models.SlugField(default='', null=False)
 
@@ -17,7 +18,7 @@ class ZodiacSigns(models.Model):
 
 class SignHoroscope(models.Model):
     sign_horoscope = models.TextField()
-    sign = models.ForeignKey(ZodiacSigns, on_delete=models.CASCADE)
+    sign = models.ForeignKey(ZodiacSign, on_delete=models.CASCADE)
     date = models.DateField()
     slug = models.SlugField(default='', null=False)
 
