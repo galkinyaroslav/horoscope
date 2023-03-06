@@ -25,13 +25,13 @@ def index(request):
     return render(request, 'zodiac/index.html', {'title': 'Главная страница',
                                                  'current_date': current_date,
                                                  # 'pics': zodiac_sign_pic_list,
-                                                 'zodiac_signes': zodiac_signs},)
+                                                 'zodiac_signs': zodiac_signs},)
 
 
-def zodiac_sign(request, sign):
+def sign_horoscope(request, sign_slug):
     # if sign not in ZodiacSigns.object.all(): ToDo
     #     return redirect('home')
-    return HttpResponse(f'<h1>TEAT SLUG</h1><p>{sign}</p>')
+    return HttpResponse(f'<h1>TEST SLUG</h1><p>{sign_slug}</p>')
 
 
 def page_not_found(request, exception):

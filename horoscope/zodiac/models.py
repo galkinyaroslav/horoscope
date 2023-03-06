@@ -1,5 +1,6 @@
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
+from django.urls import reverse
 
 
 # Create your models here.
@@ -15,6 +16,9 @@ class ZodiacSign(models.Model):
     def __str__(self):
         return f'{self.sign_name}: {self.from_date}-{self.to_date}'
 
+    def get_absolute_url(self):
+        return reverse('sign_horoscope', kwargs={'sign_slug': self.slug})
+
 
 class SignHoroscope(models.Model):
     sign_horoscope = models.TextField()
@@ -24,4 +28,6 @@ class SignHoroscope(models.Model):
 
     def __str__(self):
         return f'Horoscope for {self.sign} on {self.date}'
+
+
 #

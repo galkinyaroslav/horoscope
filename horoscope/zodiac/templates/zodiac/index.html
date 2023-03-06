@@ -2,8 +2,8 @@
 {% block content %}
 <h1>{{current_date|date:"d.m.Y"}}</h1>
 <ul>
-    {% for sign in zodiac_signes %}
-    <li>{%autoescape off%}{{sign.sign_view}}{%endautoescape %} {{sign.sign_name}}</li>
+    {% for sign in zodiac_signs %}
+    <li>{%autoescape off%}{{sign.sign_view}}{%endautoescape %} <a href="{{ sign.get_absolute_url }}">{{sign.sign_name}}</a></li>
     {% endfor %}
 </ul>
 {% endblock %}

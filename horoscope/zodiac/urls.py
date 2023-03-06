@@ -1,8 +1,8 @@
 from django.urls import path
-from . import views
+from zodiac.views import *
 
 urlpatterns = [
-    path('', views.index, name='home'),
-    path('<slug:sign>', views.zodiac_sign, name='zodiac_sign'),
+    path('', index, name='home'),
+    path('<slug:sign_slug>', sign_horoscope, name='sign_horoscope'),
 
 ]
