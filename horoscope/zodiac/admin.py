@@ -13,7 +13,7 @@ admin.site.register(ZodiacSign, ZodiacSignAdmin)
 
 
 class SignHoroscopeAdmin(admin.ModelAdmin):
-    list_display = ('sign_horoscope', 'sign', 'date',)
+    list_display = ('sign_horoscope', 'sign_id', 'date',)
     prepopulated_fields = {'slug': ('date',)}
 
 

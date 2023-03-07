@@ -14,7 +14,7 @@ class ZodiacSign(models.Model):
     slug = models.SlugField(default='', null=False)
 
     def __str__(self):
-        return f'{self.sign_name}: {self.from_date}-{self.to_date}'
+        return f'{self.sign_name}'.casefold()
 
     def get_absolute_url(self):
         return reverse('sign_horoscope', kwargs={'sign_slug': self.slug})
@@ -22,12 +22,12 @@ class ZodiacSign(models.Model):
 
 class SignHoroscope(models.Model):
     sign_horoscope = models.TextField()
-    sign = models.ForeignKey(ZodiacSign, on_delete=models.CASCADE)
+    sign_id = models.ForeignKey(ZodiacSign, on_delete=models.CASCADE)
     date = models.DateField()
     slug = models.SlugField(default='', null=False)
 
     def __str__(self):
-        return f'Horoscope for {self.sign} on {self.date}'
+        return f'Horoscope for {self.sign_id} on {self.date}'
 
 
 #
