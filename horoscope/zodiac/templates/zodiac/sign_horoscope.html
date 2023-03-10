@@ -1,6 +1,8 @@
 {% extends 'zodiac/base.html' %}
 {% block content %}
 <h1>Гороскоп для {{sign.sign_name}} на сегодня </h1>
+<img src="{{sign.sign_image.url}}" alt="Пример кода">
+
 <h2>{{current_date|date:"d.m.Y"}}</h2>
 {{sign_hor.sign_horoscope}}
 
